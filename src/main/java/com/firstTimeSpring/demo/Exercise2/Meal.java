@@ -23,4 +23,7 @@ public class Meal {
         return price;
     }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
