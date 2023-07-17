@@ -6,7 +6,7 @@ _ = TO DO
 ! = EXERCISE CORRECT**
 
 **<pre>X**   Esercizio 1     *(The first controller - Postman, requests)*
-**_**   Esercizio 2     *(Controller path variables, request params, returning objects)*
+**X**   Esercizio 2     *(Controller path variables, request params, returning objects)*
 **_**   Esercizio 3     *(Request body, Post, autoserialization issues)*
 **_**   Esercizio 4     *(Controller, service, Dao structure MVC, Autowiring)*
 **_**   Esercizio 5     *(CRUD operations on an entity)*
