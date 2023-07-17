@@ -1,11 +1,11 @@
-package com.firstTimeSpring.demo.Controller;
+package com.firstTimeSpring.demo.Exercise1;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Controller1 {
+public class BasicReturn {
 
     // Exercise 1: Create a GetMapping that returns a basic "string" as a response
     @GetMapping(value = "/")
