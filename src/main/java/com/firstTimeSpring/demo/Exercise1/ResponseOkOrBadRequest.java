@@ -1,4 +1,4 @@
-package com.firstTimeSpring.demo.Controller;
+package com.firstTimeSpring.demo.Exercise1;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,7 @@ import java.util.Random;
 // 2 - Create a new endpoint "/random" using the @GetMapping annotation.
 // 3 - In the method, return a ResponseEntity with 200 OK or 400 Bad Request based on the result of new Random().nextBoolean()
 @RestController
-public class Controller3 {
+public class ResponseOkOrBadRequest {
 
     @GetMapping(value = "/random")
     public ResponseEntity<Boolean> saraVeroOppureFalso(){
