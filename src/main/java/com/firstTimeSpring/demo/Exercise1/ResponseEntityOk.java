@@ -1,4 +1,4 @@
-package com.firstTimeSpring.demo.Controller;
+package com.firstTimeSpring.demo.Exercise1;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 // 1 - Annotate a new class with the @RestController annotation.
 // 2 - Create a new endpoint "/info" using the @GetMapping annotation.
 // 3 - In the method, return a ResponseEntity with 200 OK
+
 @RestController
-public class Controller2 {
+public class ResponseEntityOk {
     @GetMapping(value = "/info")
     public ResponseEntity<String> info(){
         return ResponseEntity.ok("Ma come funziona questo Spring?!");
