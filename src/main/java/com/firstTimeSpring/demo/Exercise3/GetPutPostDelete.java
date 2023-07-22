@@ -20,6 +20,13 @@ import java.util.List;
 
 @RestController
 public class GetPutPostDelete {
+    private MealService mealService;
+
+
+    @Autowired
+    public GetPutPostDelete(MealService mealService) {
+        this.mealService = mealService;
+    }
 
     List<Meal> piatti = Arrays.asList(
             new Meal("Spaghetti alla carbonara", "Uova, guanciale, formaggio pecorino", 8.00),
@@ -35,13 +42,19 @@ public class GetPutPostDelete {
 
     @GetMapping(value = "/get/meals")
     public ResponseEntity<List<Meal>> ottieniListaPiatti(){
-        return ResponseEntity.ok(nuovaListaPiatti);
+        return ResponseEntity.ok(mealService.getNuovaListaPiatti());
     }
+
+
 
     @org.springframework.web.bind.annotation.PutMapping(value = "/meal")
     public ResponseEntity<String> aggiungiPiatto(@RequestBody Meal meal){
-        this.nuovaListaPiatti.add(meal);
-        return ResponseEntity.ok("Piatto aggiunto!");
+        try {
+            mealService.aggiungiPiatto(meal);
+            return ResponseEntity.ok("Piatto aggiunto!");
+        } catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
 
@@ -52,12 +65,15 @@ public class GetPutPostDelete {
     // 2 - In the method, add a PathVariable for the name and a RequestBody for the updated Meal object.
     // 3 - Update the meal with the corresponding name using the information from the RequestBody.
 
+
+
     @PostMapping(value = "/meal/{name}")
     public ResponseEntity<String> aggiornaNomePiatto(@PathVariable String name, @RequestBody Meal meal){
         this.nuovaListaPiatti.removeIf(piatto -> piatto.getName().equals(name));
         this.nuovaListaPiatti.add(meal);
         return ResponseEntity.ok("Nome del piatto aggiornato!");
     }
+
 
 
 
@@ -69,7 +85,7 @@ public class GetPutPostDelete {
 
     @DeleteMapping(value = "/meal/{name}")
     public ResponseEntity<String> eliminaNomePiatto(@PathVariable String name){
-        this.nuovaListaPiatti.removeIf(piatto -> piatto.getName().equals(name));
+        mealService.eliminaPiatto(name);
         return ResponseEntity.ok("Nome del piatto eliminato!");
     }
 
@@ -80,6 +96,8 @@ public class GetPutPostDelete {
     // 1 - Create a new endpoint "/meal/price/{price}" using the @DeleteMapping annotation.
     // 2 - In the method, add a PathVariable for the price.
     // 3 - Delete all meals with a price above the price from the PathVariable.
+
+
 
     @DeleteMapping(value = "/meal/price/{price}")
     public ResponseEntity<String> eliminaAlcuniPiatti(@PathVariable double price){
@@ -102,6 +120,8 @@ public class GetPutPostDelete {
     // 2 - In the method, add a PathVariable for the name and a RequestBody for the updated price.
     // 3 - Update the price of the meal with the corresponding name using the information from the RequestBody.
 
+
+
     @PutMapping(value = "/meal/{name}/price")
     public ResponseEntity<String> aggiornaPrezzoPiattoSpecifico(@PathVariable String name, @RequestBody double price){
         for (Meal meal : nuovaListaPiatti){
@@ -114,5 +134,6 @@ public class GetPutPostDelete {
         }
         return ResponseEntity.ok("Ecco il nuovo prezzo del piatto " + name + " aggiornato a" + price);
     }
+
 
 }
