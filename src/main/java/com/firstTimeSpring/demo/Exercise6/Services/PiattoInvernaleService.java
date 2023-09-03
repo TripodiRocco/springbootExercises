@@ -15,33 +15,6 @@ import java.util.List;
 @Service
 public class PiattoInvernaleService {
 
-    /*
-    private final double MIN_WINTER_TEMPERATURE = 1.3;
-
-    @Autowired
-    private PiattoInvernaleService piattoInvernaleService;
-
-    public PiattoInvernaleService(PiattoInvernaleService piattoInvernaleService) {
-        this.piattoInvernaleService = piattoInvernaleService;
-    }
-
-    public boolean ottieniPiattoInvernale(){
-        Double temperaturaCorrenteInGradiCentigradi = ottieniTemperaturaCorrenteInGradiCentigradi();
-        return piattoInvernaleService.ottieniPiattoInvernale();
-    }
-
-    private double ottieniTemperaturaCorrenteInGradiCentigradi(){
-        try {
-            JSONObject response = Unirest.get("https://api.open-meteo.com/v1/forecast?latitude=38.433&longitude=16.0575&current_weather=true")
-                            .asJson().getBody().getObject();
-            return response.getJSONObject("current_weather").getDouble("temperature");
-
-        } catch (UnirestException e) {
-            throw new RuntimeException(e);
-        }
-    }
-     */
-
     private final double MIN_WINTER_TEMPERATURE = 1.3;
     private final String OPEN_METEO_API_URL = "https://api.open-meteo.com/v1/forecast?latitude=38.433&longitude=16.0575&current_weather=true";
 
