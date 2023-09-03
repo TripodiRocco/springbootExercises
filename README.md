@@ -9,5 +9,5 @@ _ = TO DO
 **X**   Esercizio 2     *(Controller path variables, request params, returning objects)*
 **X**   Esercizio 3     *(Request body, Post, autoserialization issues)*
 **X**   Esercizio 4     *(Controller, service, Dao structure MVC, Autowiring)*
-**_**   Esercizio 5     *(CRUD operations on an entity)*
-**_**   Esercizio 6     *(Using an external API from Spring)*
+**^**   Esercizio 5     *(CRUD operations on an entity)*
+**X**   Esercizio 6     *(Using an external API from Spring)*
